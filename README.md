@@ -6,6 +6,17 @@ MINI_MCP_CLIENT est un projet en bêta privée. Il connecte des LLM comme Codex,
 
 Ce dépôt public est une vitrine. Il ne contient pas le code source complet du runtime privé.
 
+## Private beta / technical demo
+
+MINI_MCP_CLIENT is available only through private, guided evaluation for now. Interested developers, technical reviewers, builders or early partners can request:
+
+- a private walkthrough;
+- a short technical evaluation;
+- a limited beta diagnostic;
+- a developer or investor discussion.
+
+The complete runtime is not public in this repository. For access or a guided demo, see [Private beta offer](PRIVATE_BETA_OFFER.md), open an issue, or contact the maintainer through GitHub.
+
 ## Le problème
 
 Les agents IA peuvent aider à lire, diagnostiquer, modifier et tester des projets. Mais dès qu’ils travaillent avec des outils locaux, plusieurs questions deviennent importantes :
