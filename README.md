@@ -53,6 +53,19 @@ Selon la configuration privée utilisée, MINI_MCP_CLIENT peut exposer des capac
 
 Ces fonctions sont en validation terrain. Elles ne sont pas présentées ici comme un produit public complet.
 
+## Short terminal demos
+
+These short clips show public-safe terminal surfaces only. This repository remains a public showcase for a private beta; it does not publish the full MINI_MCP_CLIENT runtime.
+
+| Clip | Description |
+| --- | --- |
+| [CLI capabilities](assets/videos/01_cli_capabilities.mp4) | Shows Python, mcp_cli.py and the main capabilities: doctor, tools, watch, flow, scaffold, improve and apprentice. |
+| [Local daemon status](assets/videos/02_daemon_status.mp4) | Shows a filtered diagnostic: client_exists, llm_available, daemon_running, daemon_status, daemon_port, tools_count and server_errors. |
+| [MINI_MCP_FLOW validation](assets/videos/03_flow_validation.mp4) | Shows flow list and flow validate on health_check_mini_mcp with nodes, edges, errors and warnings. |
+| [Controlled dry-run](assets/videos/04_flow_dry_run.mp4) | Shows flow run --dry-run health_check_mini_mcp and the planned execution steps without running real actions. |
+
+For a private walkthrough or technical evaluation, open an issue or contact the maintainer through GitHub.
+
 ## Ce que ce projet n’est pas
 
 MINI_MCP_CLIENT n’est pas :
