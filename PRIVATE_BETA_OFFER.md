@@ -104,3 +104,11 @@ Vous pouvez demander une démonstration privée ou une évaluation technique en 
 [Request a private demo](https://github.com/dbavotalecours/mini-mcp-client-site/issues/new?template=private-demo-request.md)
 
 Pour commencer, ouvrez une issue GitHub ou contactez le maintainer via GitHub avec un court résumé de votre contexte.
+
+## Support
+
+Optional support for public demos, documentation, testing, and technical validation is available here:
+
+[Support development](https://buymeacoffee.com/dbavotalecours)
+
+Support does not grant access to the private runtime source code.

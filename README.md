@@ -107,6 +107,14 @@ Objectifs possibles :
 - évaluer l’intégration avec vos outils Windows ;
 - discuter d’un diagnostic bêta limité.
 
+## Support development
+
+MINI_MCP_CLIENT is currently a private-beta project. Optional support helps continue public demos, documentation, testing, and technical validation.
+
+[Support development](https://buymeacoffee.com/dbavotalecours)
+
+Support is optional and does not grant access to private source code, secrets, or confidential runtime internals.
+
 ## En savoir plus
 
 - [Présentation publique détaillée](README_PUBLIC.md)
