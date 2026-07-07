@@ -17,6 +17,8 @@ MINI_MCP_CLIENT is available only through private, guided evaluation for now. In
 
 The complete runtime is not public in this repository. For access or a guided demo, see [Private beta offer](PRIVATE_BETA_OFFER.md), open an issue, or contact the maintainer through GitHub.
 
+[Request a private demo](https://github.com/dbavotalecours/mini-mcp-client-site/issues/new?template=private-demo-request.md)
+
 ## Le problème
 
 Les agents IA peuvent aider à lire, diagnostiquer, modifier et tester des projets. Mais dès qu’ils travaillent avec des outils locaux, plusieurs questions deviennent importantes :

@@ -101,4 +101,6 @@ Vous pouvez demander une démonstration privée ou une évaluation technique en 
 - le niveau de confidentialité requis ;
 - le type de workflow ou diagnostic souhaité.
 
+[Request a private demo](https://github.com/dbavotalecours/mini-mcp-client-site/issues/new?template=private-demo-request.md)
+
 Pour commencer, ouvrez une issue GitHub ou contactez le maintainer via GitHub avec un court résumé de votre contexte.
