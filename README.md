@@ -1,123 +1,142 @@
 # MINI_MCP_CLIENT
 
-Runtime local MCP pour agents IA sur Windows.
+MINI_MCP_CLIENT aide un LLM à utiliser des outils Windows locaux sans agir dans le noir : commandes tracées, résultats vérifiables, workflows dry-run, mémoire procédurale et preuve avant confiance.
 
-MINI_MCP_CLIENT est un projet en bêta privée. Il connecte des LLM comme Codex, Claude, Gemini, Qwen, GLM, Ollama, LM Studio ou POPI à des outils locaux Windows, avec une approche centrée sur le contrôle, les preuves, les tests et la mémoire procédurale.
-
-Ce dépôt public est une vitrine. Il ne contient pas le code source complet du runtime privé.
+Ce dépôt public est une vitrine pour un runtime MCP local en bêta privée. Il montre le concept, les surfaces de démonstration et les preuves terminal, sans publier le code complet du runtime privé.
 
 ## Private beta / technical demo
 
-MINI_MCP_CLIENT is available only through private, guided evaluation for now. Interested developers, technical reviewers, builders or early partners can request:
+MINI_MCP_CLIENT is currently available only through private, guided evaluation. Interested developers, technical reviewers, builders or early partners can request:
 
 - a private walkthrough;
 - a short technical evaluation;
 - a limited beta diagnostic;
 - a developer or investor discussion.
 
-The complete runtime is not public in this repository. For access or a guided demo, see [Private beta offer](PRIVATE_BETA_OFFER.md), open an issue, or contact the maintainer through GitHub.
-
 [Request a private demo](https://github.com/dbavotalecours/mini-mcp-client-site/issues/new?template=private-demo-request.md)
 
-## Le problème
+For more context, see [Private beta offer](PRIVATE_BETA_OFFER.md).
 
-Les agents IA peuvent aider à lire, diagnostiquer, modifier et tester des projets. Mais dès qu’ils travaillent avec des outils locaux, plusieurs questions deviennent importantes :
+## The problem
 
-- quel outil a été appelé ?
-- avec quels paramètres ?
-- quel résultat a été obtenu ?
-- quels tests prouvent que l’action est correcte ?
-- comment rejouer ou auditer une méthode utile ?
-- comment éviter de confondre promesse, intention et preuve réelle ?
+LLMs can read, diagnose, modify and test local projects. But once an AI agent starts using local tools, the important question becomes less “can it act?” and more:
 
-MINI_MCP_CLIENT explore cette zone : faire travailler un LLM avec des outils Windows, mais avec un couloir local explicite et observable.
+- what tool was called?
+- with what parameters?
+- what result came back?
+- what test or log proves the result?
+- can the method be replayed, explained or audited later?
+- did the model actually verify the work, or only sound confident?
 
-## La solution proposée
+MINI_MCP_CLIENT explores this gap: letting a LLM work with local Windows tools through an explicit, observable MCP path.
 
-Le chemin central est volontairement simple :
+## The solution
+
+The core path is intentionally simple:
 
 ```text
-LLM / humain
+LLM
 → mcp_cli.py
-→ daemon local
+→ local daemon
 → MCPClient
-→ outils MCP
-→ preuves / logs / tests / mémoire
+→ MCP tools
+→ proofs / logs / tests / procedural memory
 ```
 
-L’idée n’est pas de remplacer Codex, Claude, Gemini ou Qwen.
+In practice, this means the LLM does not have to “guess” what happened. It can call local tools through a controlled CLI, receive structured results, inspect logs, run dry-runs, validate workflows, and reuse procedural memory from previous validated work.
 
-L’idée est de leur fournir une couche locale MCP pour exécuter, tracer, tester et rejouer du travail avec des outils Windows.
-
-## Fonctionnalités démontrables
-
-Selon la configuration privée utilisée, MINI_MCP_CLIENT peut exposer des capacités comme :
-
-- lecture et écriture de fichiers locaux ;
-- terminal Windows contrôlé ;
-- accès SQLite ;
-- workflows locaux ;
-- logs structurés ;
-- tests automatisés ;
-- mémoire procédurale ;
-- watchdog d’exécution ;
-- diagnostics du daemon local ;
-- inventaire des outils MCP disponibles.
-
-Ces fonctions sont en validation terrain. Elles ne sont pas présentées ici comme un produit public complet.
+MINI_MCP_CLIENT does not replace Codex, Claude, Gemini, Qwen, GLM, OpenAI, Ollama, LM Studio or local models. It gives them a local MCP workbench on Windows.
 
 ## Short terminal demos
 
-These short clips show public-safe terminal surfaces only. This repository remains a public showcase for a private beta; it does not publish the full MINI_MCP_CLIENT runtime.
+These short clips show public-safe terminal surfaces only. They demonstrate the public-facing behavior without exposing private runtime code, secrets, internal prompts, logs or databases.
 
-| Clip | Description |
+| Clip | What it shows |
 | --- | --- |
-| [CLI capabilities](assets/videos/01_cli_capabilities.mp4) | Shows Python, mcp_cli.py and the main capabilities: doctor, tools, watch, flow, scaffold, improve and apprentice. |
-| [Local daemon status](assets/videos/02_daemon_status.mp4) | Shows a filtered diagnostic: client_exists, llm_available, daemon_running, daemon_status, daemon_port, tools_count and server_errors. |
-| [MINI_MCP_FLOW validation](assets/videos/03_flow_validation.mp4) | Shows flow list and flow validate on health_check_mini_mcp with nodes, edges, errors and warnings. |
-| [Controlled dry-run](assets/videos/04_flow_dry_run.mp4) | Shows flow run --dry-run health_check_mini_mcp and the planned execution steps without running real actions. |
+| [CLI capabilities](assets/videos/01_cli_capabilities.mp4) | Python, `mcp_cli.py` and the main capabilities: doctor, tools, watch, flow, scaffold, improve and apprentice. |
+| [Local daemon status](assets/videos/02_daemon_status.mp4) | A filtered diagnostic: `client_exists`, `llm_available`, `daemon_running`, `daemon_status`, `daemon_port`, `tools_count` and `server_errors`. |
+| [MINI_MCP_FLOW validation](assets/videos/03_flow_validation.mp4) | `flow list` and `flow validate` on `health_check_mini_mcp`, with nodes, edges, errors and warnings. |
+| [Controlled dry-run](assets/videos/04_flow_dry_run.mp4) | `flow run --dry-run health_check_mini_mcp` and planned execution steps without running real actions. |
 
-For a private walkthrough or technical evaluation, open an issue or contact the maintainer through GitHub.
+## Why request a demo?
 
-## Ce que ce projet n’est pas
+A guided demo is useful if you want to see how MINI_MCP_CLIENT behaves on a real Windows setup before discussing deeper access.
 
-MINI_MCP_CLIENT n’est pas :
+Typical demo angles:
 
-- une AGI ;
-- un remplaçant de Codex, Claude, Gemini ou Qwen ;
-- une promesse d’autonomie totale ;
-- une solution de sécurité absolue ;
-- une plateforme enterprise prête pour production ;
-- un dépôt open source complet du runtime privé.
+1. **Diagnose a local project**  
+   Show how a LLM can inspect a project through the CLI / daemon / MCPClient path, with visible commands and results.
 
-## Statut actuel
+2. **Run a Windows/MCP workflow with proofs**  
+   Validate or dry-run a workflow, inspect the planned steps, then review logs, status and structured output.
 
-Le projet est en bêta privée.
+3. **Replay or explain a method with procedural memory**  
+   Show how LLMApprenticeAgent can retrieve a validated procedure, explain why it applies, and keep proof stronger than confidence.
 
-Le dépôt public sert à expliquer le concept, préparer des démonstrations et recueillir de l’intérêt technique. Le code complet de MINI_MCP_CLIENT n’est pas distribué publiquement pour le moment.
+## What you will see in 5 minutes
 
-## Démonstration privée
+The current public clips are designed to answer the first practical questions quickly:
 
-Des démonstrations privées et évaluations techniques encadrées peuvent être proposées sur demande.
+- **Is there a real CLI surface?** See `mcp_cli.py`, available commands and capabilities.
+- **Is the daemon actually running?** See local daemon status and tool count.
+- **Can workflows be validated before execution?** See `flow validate`.
+- **Can actions be planned without running them?** See controlled dry-run behavior.
 
-Objectifs possibles :
+The private walkthrough can then go deeper into diagnostics, workflow orchestration, watcher behavior, procedural memory, and the proof-first loop.
 
-- comprendre si MINI_MCP_CLIENT convient à votre usage ;
-- voir une démonstration du couloir local MCP ;
-- évaluer l’intégration avec vos outils Windows ;
-- discuter d’un diagnostic bêta limité.
+## Demonstrable capabilities
+
+Depending on the private configuration used, MINI_MCP_CLIENT can expose capabilities such as:
+
+- local file tooling;
+- controlled Windows terminal execution;
+- SQLite-backed state and proof queries;
+- local workflow validation and dry-run;
+- structured logs;
+- automated test runs;
+- execution watchdog;
+- daemon diagnostics;
+- MCP tool inventory;
+- procedural memory through LLMApprenticeAgent;
+- session supervision concepts: activation plans, trigger history and final reports.
+
+These functions are still under private-beta validation. They are not presented here as a public production product.
+
+## What this project is not
+
+MINI_MCP_CLIENT is not:
+
+- an AGI claim;
+- a promise of magical autonomy;
+- a replacement for human technical review;
+- a guarantee of absolute safety;
+- an enterprise-ready public platform;
+- an open-source release of the full private runtime.
+
+The public repository is intentionally limited. The complete runtime source code is not distributed here.
+
+## Private beta status
+
+The project is currently in private beta. Demos and technical evaluations are guided and scoped.
+
+The public repository exists to:
+
+- explain the concept;
+- show safe terminal demonstrations;
+- collect private demo requests;
+- support technical conversations with developers, reviewers and early partners.
 
 ## Support development
 
-MINI_MCP_CLIENT is currently a private-beta project. Optional support helps continue public demos, documentation, testing, and technical validation.
+MINI_MCP_CLIENT is currently a private-beta project. Optional support helps continue public demos, documentation, testing and technical validation.
 
 [Support development](https://buymeacoffee.com/dbavotalecours)
 
-Support is optional and does not grant access to private source code, secrets, or confidential runtime internals.
+Support is optional. It does not grant access to private source code, secrets, private prompts, internal runtime files or confidential implementation details.
 
-## En savoir plus
+## Learn more
 
-- [Présentation publique détaillée](README_PUBLIC.md)
-- [Script de démonstration 5 minutes](DEMO_5_MINUTES.md)
-- [Offre bêta privée](PRIVATE_BETA_OFFER.md)
-- [Checklist de sécurité avant publication](PUBLICATION_SAFETY_CHECKLIST.md)
+- [Public overview](README_PUBLIC.md)
+- [5-minute demo script](DEMO_5_MINUTES.md)
+- [Private beta offer](PRIVATE_BETA_OFFER.md)
+- [Publication safety checklist](PUBLICATION_SAFETY_CHECKLIST.md)
